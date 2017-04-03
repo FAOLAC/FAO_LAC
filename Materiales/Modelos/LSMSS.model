@@ -1,0 +1,331 @@
+{
+    "values": {
+        "inputs": {
+            "rangeradius": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 60.0, 
+                            "x": 560.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "rangeradius", 
+                            "min": 1, 
+                            "default": 1, 
+                            "max": 100, 
+                            "value": 1, 
+                            "hidden": false, 
+                            "isInteger": true, 
+                            "optional": false, 
+                            "description": "Range_Radius"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "spatialradius": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 60.0, 
+                            "x": 780.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "spatialradius", 
+                            "min": 1, 
+                            "default": 2, 
+                            "max": 100, 
+                            "value": 2, 
+                            "hidden": false, 
+                            "isInteger": true, 
+                            "optional": false, 
+                            "description": "Spatial_Radius"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "unidadminima": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 60.0, 
+                            "x": 340.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "unidadminima", 
+                            "min": 1, 
+                            "default": 12, 
+                            "max": 100, 
+                            "value": 12, 
+                            "hidden": false, 
+                            "isInteger": true, 
+                            "optional": false, 
+                            "description": "Unidad Minima"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "imagenl8": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 60.0, 
+                            "x": 120.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "imagenl8", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "ImagenL8"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }
+        }, 
+        "helpContent": {
+            "ALG_CREATOR": "Jos\u00e9 Serafini", 
+            "ALG_DESC": "", 
+            "ALG_VERSION": "1.0", 
+            "ALG_HELP_CREATOR": ""
+        }, 
+        "group": "Segmentacion", 
+        "name": "Exact Large Scale Mean Shift Segmentation", 
+        "algs": {
+            "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP2_1": {
+                "values": {
+                    "name": "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP2_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": false, 
+                    "pos": {
+                        "values": {
+                            "y": 162.0, 
+                            "x": 751.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "-tilesizex": 500.0, 
+                        "-tilesizey": 500.0, 
+                        "-inpos": {
+                            "values": {
+                                "alg": "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP1SMOOTHING_1", 
+                                "output": "-foutpos"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "-in": {
+                            "values": {
+                                "alg": "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP1SMOOTHING_1", 
+                                "output": "-fout"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "-ranger": {
+                            "values": {
+                                "name": "rangeradius"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "-tmpdir": "C:\\OTB\\temp", 
+                        "-cleanup": true, 
+                        "-minsize": 0.0, 
+                        "-spatialr": {
+                            "values": {
+                                "name": "spatialradius"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "otb:exactlargescalemeanshiftsegmentationstep2", 
+                    "description": "Exact Large-Scale Mean-Shift segmentation, step 2"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP4_1": {
+                "values": {
+                    "name": "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP4_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "-out": {
+                            "values": {
+                                "description": "Seg.shp", 
+                                "pos": {
+                                    "values": {
+                                        "y": 595.0, 
+                                        "x": 566.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 550.0, 
+                            "x": 366.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "-tilesizex": 500.0, 
+                        "-inseg": {
+                            "values": {
+                                "alg": "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP3OPTIONAL_1", 
+                                "output": "-out"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "-tilesizey": 500.0, 
+                        "-in": {
+                            "values": {
+                                "name": "imagenl8"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "otb:exactlargescalemeanshiftsegmentationstep4", 
+                    "description": "Exact Large-Scale Mean-Shift segmentation, step 4"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP1SMOOTHING_1": {
+                "values": {
+                    "name": "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP1SMOOTHING_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": false, 
+                    "pos": {
+                        "values": {
+                            "y": 172.0, 
+                            "x": 232.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "-thres": 0.1, 
+                        "-ranger": {
+                            "values": {
+                                "name": "rangeradius"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "-in": {
+                            "values": {
+                                "name": "imagenl8"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "-modesearch": false, 
+                        "-ram": 0.0, 
+                        "-rangeramp": 0.0, 
+                        "-spatialr": {
+                            "values": {
+                                "name": "spatialradius"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "-maxiter": 100.0
+                    }, 
+                    "active": true, 
+                    "consoleName": "otb:exactlargescalemeanshiftsegmentationstep1smoothing", 
+                    "description": "Exact Large-Scale Mean-Shift segmentation, step 1 (smoothing)"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP3OPTIONAL_1": {
+                "values": {
+                    "name": "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP3OPTIONAL_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "-out": {
+                            "values": {
+                                "description": "seg.tif", 
+                                "pos": {
+                                    "values": {
+                                        "y": 358.0, 
+                                        "x": 939.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 313.0, 
+                            "x": 739.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "-minsize": {
+                            "values": {
+                                "name": "unidadminima"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "-inseg": {
+                            "values": {
+                                "alg": "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP2_1", 
+                                "output": "-out"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "-tilesizey": 500.0, 
+                        "-tilesizex": 500.0, 
+                        "-in": {
+                            "values": {
+                                "alg": "OTBEXACTLARGESCALEMEANSHIFTSEGMENTATIONSTEP1SMOOTHING_1", 
+                                "output": "-fout"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "otb:exactlargescalemeanshiftsegmentationstep3optional", 
+                    "description": "Exact Large-Scale Mean-Shift segmentation, step 3 (optional)"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }
+        }
+    }, 
+    "class": "processing.modeler.ModelerAlgorithm.ModelerAlgorithm"
+}
