@@ -1,0 +1,28 @@
+
+var hfnf_y_2015 = ee.Image("users/kindgard/Argentina/hfnf_Y_2015") // Yungas
+var hfnf_m_2015 = ee.Image("users/kindgard/Argentina/hfnf_m_2015") // Misiones
+var hfnf_cs_2015 = ee.Image("users/kindgard/Argentina/hfnf_cS_2015_V2") //ChacoSeco
+var hfnf_cs_2015 = ee.Image("users/kindgard/Argentina/Chaco_humedo/hfnf_ch_2015") //ChacoHumedo
+
+//Definir Capa segun region y clasificacion final
+var hfnf = hfnf_cs_2015;
+var bosque_propio = classified;
+
+
+var bosque_M15_y_FNF15 = hfnf.eq(1.25)
+var bosque_M15_or_FNF15 = hfnf.gte(0.5)
+var bosque_FNF15 = hfnf.eq(0.5)
+var bosque_M15 = hfnf.eq(0.5)
+
+
+Map.addLayer (hfnf.mask(hfnf),{min: 0,max: 2,palette: [,'90a98c','5fb165','298f23']},'hfnf');
+
+var zonas_dif0 = bosque_propio.where(bosque_M15_y_FNF15.gte(0.5),2)
+var zonas_dif = bosque_propio.gt(1).and(bosque_M15_y_FNF15.gte(0.5))
+var zonas_dif_comision = bosque_propio.eq(1).and(bosque_M15_y_FNF15.eq(0))
+
+Map.addLayer (zonas_dif.mask(zonas_dif),{min:0 ,max: 2,palette: [,'d60000']},'zonas_dif_omision');
+Map.addLayer (zonas_dif_comision.mask(zonas_dif_comision),{min: 0,max: 2,palette: [,'d3d613']},'zonas_dif_comision');
+
+
+
