@@ -3,7 +3,7 @@
 <Document>
 <Placemark>
   <ExtendedData>
-    <Data name='system:index'>
+    <Data name='system'>
       <value>1_1_2</value>
     </Data>
     <Data name='name'>
@@ -79,7 +79,7 @@
   </Polygon>
 </Placemark><Placemark>
   <ExtendedData>
-    <Data name='system:index'>
+    <Data name='system'>
       <value>1_2_2</value>
     </Data>
     <Data name='name'>
@@ -213,7 +213,7 @@
 
 &lt;/html&gt;</value>
     </Data>
-    <Data name='system:index'>
+    <Data name='system'>
       <value>2_2</value>
     </Data>
   </ExtendedData>
